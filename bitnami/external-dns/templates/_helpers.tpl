@@ -86,6 +86,7 @@ imagePullSecrets:
 Return true if a secret object should be created
 */}}
 {{- define "external-dns.createSecret" -}}
+{{- if .Values.createSecret -}}
 {{- if and (eq .Values.provider "akamai") .Values.akamai.clientSecret (not .Values.akamai.secretName) -}}
     {{- true -}}
 {{- else if and (eq .Values.provider "alibabacloud") .Values.alibabacloud.accessKeyId .Values.alibabacloud.accessKeySecret (not .Values.alibabacloud.secretName) }}
@@ -129,6 +130,7 @@ Return true if a secret object should be created
 {{- else if and (eq .Values.provider "ns1") .Values.ns1.apiKey (not .Values.ns1.secretName) -}}
     {{- true -}}
 {{- else -}}
+{{- end -}}
 {{- end -}}
 {{- end -}}
 

@@ -145,6 +145,9 @@ publishHostIP: false
 ## @param serviceTypeFilter The service types to take care about (default: all, options: ClusterIP, NodePort, LoadBalancer, ExternalName)
 ##
 serviceTypeFilter: []
+## @param createSecret Allow external-dns to create a secret with the credentials for the DNS provider
+##
+createSecret: true
 ## Akamai configuration to be set via arguments/env. variables
 ##
 akamai:
